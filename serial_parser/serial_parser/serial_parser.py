@@ -67,7 +67,7 @@ class SerialParser(Node):
         Loop until the node is shut down or the serial port is closed.
         """
         if self.connected and self.ser.is_open:
-            if self.send_command:
+            if self.send_command != "":
                 self.ser.write(self.send_command.encode("utf-8"))
                 self.get_logger().info(f"Sent command: {self.send_command}")
 
