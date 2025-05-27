@@ -8,8 +8,19 @@ This script should publish to the first port, the serial_parser node should subs
 """
 import serial
 import time
+import argparse
 
-port = serial.Serial("/dev/pts/2", baudrate=115200)
+parser = argparse.ArgumentParser(description="Simulate a virtual serial connection.")
+parser.add_argument(
+    "--port",
+    type=str,
+    default="/dev/pts/2",  # Default to the first virtual port
+    help="The serial port to write to (default: /dev/pts/2)",
+)
+args = parser.parse_args()
+print(f"Using serial port: {args.port}")
+
+port = serial.Serial(args.port, baudrate=115200)
 rate = 1  # Hz
 period = 1.0 / rate  # seconds
 
