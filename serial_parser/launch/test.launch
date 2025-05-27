@@ -1,0 +1,13 @@
+<launch>
+    <arg name="robot_name" default="lolo"/>
+
+    <push-ros-namespace namespace="$(var robot_name)"/>
+    <node pkg="serial_parser" exec="serial_parser">
+        <param name="port" value="/dev/pts/4"/>
+        <param name="baudrate" value="115200"/>
+        <param name="listen_to_topic" value="listen_to_topic"/>
+        <param name="publish_to_topic" value="publish_to_topic"/>
+        <param name="poll_rate" value="10"/>
+    </node>
+
+</launch>
