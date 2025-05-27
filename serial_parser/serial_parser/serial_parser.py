@@ -7,7 +7,8 @@ import time
 
 class SerialParser(Node):
     """
-    A ROS2 node that reads data from a serial port and publishes it to a topic.
+    A ROS2 node that reads data from a serial port and publishes it to publish_to_topic.
+    It also listens to a specific topic (listen_to_topic) and writes received messages to the serial port.
     """
 
     def __init__(self):
